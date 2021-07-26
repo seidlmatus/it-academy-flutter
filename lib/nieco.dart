@@ -10,15 +10,25 @@ main(){
 
   //print('$text');
 
-  Person person = Person();
-  print('Person ${person.getName()}');
+  Person jano = Person("Jano", 15);
+  print('Person ${jano.getName()}');
+  print('Person ${jano.getInfoText()}');
+
+  Person peter = Person('Peter', 30);
+  print('Person ${peter.getName()}');
+  print('Person ${peter.getInfoText()}');
+
+  peter.setName('Martin');
+  print('Person ${peter.getName()}');
+
+  print('Is Peter adult:  ${peter.isAdult()}');
+
+
 
   String text = getText1();
   print('$text');
 
 }
-
-
 
 
 
