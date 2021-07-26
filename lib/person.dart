@@ -1,4 +1,4 @@
-abstract class Person {
+ class Person {
   String name; //private
   int age; // public
 

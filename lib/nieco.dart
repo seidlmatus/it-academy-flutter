@@ -50,9 +50,18 @@ main(){
   String text = getText1();
   print('$text');
 
+  var user = User();
+  //String txt = user.getName();
+  //print(txt);
+
 }
 
-
+class User {
+    String? _name;
+    String getName() {
+      return _name!;
+    }
+}
 
 
 String getText( int value) {
