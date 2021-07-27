@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'icon_content.dart';
+
 void main() {
   runApp(BMICalculator());
 }
@@ -22,45 +24,25 @@ class BMICalculator extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80,
-                      ),
-                      SizedBox(height: 15,),
-                      Text(
-                        'Male',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                Expanded(
+                  child: Container(
+                    child: IconContent(icon: FontAwesomeIcons.mars,label: 'MALE',),
+                    margin: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                  margin: EdgeInsets.all(15),
-                  decoration: BoxDecoration(color: Colors.blue),
                 ),
-                Container(
-                  child: Column(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.venus,
-                        size: 80,
-                      ),
-                      SizedBox(height: 15,),
-                      Text(
-                        'FEMALE',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                Expanded(
+                  child: Container(
+                    child: IconContent(icon: FontAwesomeIcons.venus,label: 'FEMALE',),
+                    margin: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                  margin: EdgeInsets.all(15),
-                  decoration: BoxDecoration(color: Colors.blue),
                 ),
               ],
             ),
@@ -73,3 +55,5 @@ class BMICalculator extends StatelessWidget {
     );
   }
 }
+
+
