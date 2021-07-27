@@ -8,6 +8,8 @@ void main() {
   runApp(BMICalculator());
 }
 
+enum Gender { male, female }
+
 class BMICalculator extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -16,7 +18,8 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculator extends State<StatefulWidget> {
-  int height = 100;
+  int height = 180;
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +39,10 @@ class _BMICalculator extends State<StatefulWidget> {
               children: [
                 Expanded(
                   child: ReusableCard(
+                    onPress: () => setState(() => selectedGender = Gender.male ),
+                    color: selectedGender == Gender.male
+                        ? Colors.blue.shade800
+                        : Colors.blue,
                     contentChild: IconContent(
                       icon: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -44,6 +51,11 @@ class _BMICalculator extends State<StatefulWidget> {
                 ),
                 Expanded(
                   child: ReusableCard(
+                    onPress: () =>
+                        setState(() => selectedGender = Gender.female ),
+                    color: selectedGender == Gender.female
+                        ? Colors.blue.shade800
+                        : Colors.blue,
                     contentChild: IconContent(
                       icon: FontAwesomeIcons.venus,
                       label: 'FEMALE',
@@ -53,6 +65,7 @@ class _BMICalculator extends State<StatefulWidget> {
               ],
             ),
             ReusableCard(
+              onPress: ()=>{},
                 contentChild: Column(
               children: [
                 Text(
