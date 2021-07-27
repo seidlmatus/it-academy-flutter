@@ -1,59 +1,44 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(BMICalculator());
 }
 
-class MyApp extends StatelessWidget {
-  final value = 10;
-
+class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // is not restarted.
-          primarySwatch: Colors.blue,
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Color(0xFF0A0E21),
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('BMI Calculator'.toUpperCase()),
         ),
-        home: Scaffold(
-            body: Padding(
-          padding: const EdgeInsets.all(50.0),
-          child: Column(
-            children: [
-              GestureDetector(
-                onTap: () => {print('Hello')},
-                child: Container(
-                  color: Colors.yellow,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Hello  1 $value',
-                    style: TextStyle(color: Colors.red, fontSize: 30.0),
-                  ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Container(
+                  child: Text('Male'),
+                  margin: EdgeInsets.all(15),
+                  decoration: BoxDecoration(color: Colors.blue),
                 ),
-              ),
-              Container(
-                color: Colors.blue,
-                alignment: Alignment.center,
-                child: Text(
-                  'Hello  2 $value',
-                  style: TextStyle(color: Colors.red, fontSize: 20.0),
+                Container(
+                  child: Text('FEMALE'),
+                  margin: EdgeInsets.all(15),
+                  decoration: BoxDecoration(color: Colors.red),
                 ),
-              ),
-              Text(
-                'Hello  3 $value',
-                style: TextStyle(color: Colors.red, fontSize: 20.0),
-              ),
-              TextButton(
-                onPressed: () => {print('Hello')},
-                child: Text(
-                  'BTN',
-                  style: TextStyle(color: Colors.red, backgroundColor:Colors.green,fontSize: 20.0),
-                ),
-              ),
-              Image.asset('assets/icons/app_icon.png')
-
-            ],
-          ),
-        )));
+              ],
+            ),
+            Text('02'),
+            Text('03'),
+            Text('04'),
+          ],
+        ),
+      ),
+    );
   }
 }
