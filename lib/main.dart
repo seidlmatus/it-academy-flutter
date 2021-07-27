@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled1/reusable_card.dart';
 
 import 'icon_content.dart';
 
@@ -25,22 +26,18 @@ class BMICalculator extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Container(
-                    child: IconContent(icon: FontAwesomeIcons.mars,label: 'MALE',),
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
+                  child: ReusableCard(
+                    contentChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    child: IconContent(icon: FontAwesomeIcons.venus,label: 'FEMALE',),
-                    margin: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
+                  child: ReusableCard(
+                    contentChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 ),
@@ -55,5 +52,7 @@ class BMICalculator extends StatelessWidget {
     );
   }
 }
+
+//IconContent(icon: FontAwesomeIcons.mars,label: 'MALE',)
 
 
