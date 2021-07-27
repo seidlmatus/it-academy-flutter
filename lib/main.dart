@@ -43,7 +43,54 @@ class BMICalculator extends StatelessWidget {
                 ),
               ],
             ),
-            Text('02'),
+            ReusableCard(
+                contentChild: Column(
+              children: [
+                Text(
+                  'HEIGHT',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(
+                      '180',
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'cm',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    activeTrackColor: Colors.red,
+                    thumbColor: Colors.yellow,
+                    thumbShape: RoundSliderThumbShape(),
+                    overlayShape: RoundSliderOverlayShape()
+                  ),
+                  child: Slider(
+                    value: 180,
+                    min: 100,
+                    max: 220,
+                    inactiveColor: Colors.pink,
+                    onChanged: null,
+                  ),
+                ),
+              ],
+            )),
             Text('03'),
             Text('04'),
           ],
@@ -52,7 +99,3 @@ class BMICalculator extends StatelessWidget {
     );
   }
 }
-
-//IconContent(icon: FontAwesomeIcons.mars,label: 'MALE',)
-
-
