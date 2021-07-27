@@ -1,4 +1,4 @@
-import 'package:untitled1/person.dart';
+import 'package:untitled1/tmp/person.dart';
 
 main(){
   int value = 8;
