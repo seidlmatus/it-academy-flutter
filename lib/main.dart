@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(BMICalculator());
@@ -22,14 +23,44 @@ class BMICalculator extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  child: Text('Male'),
+                  child: Column(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.mars,
+                        size: 80,
+                      ),
+                      SizedBox(height: 15,),
+                      Text(
+                        'Male',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                   margin: EdgeInsets.all(15),
                   decoration: BoxDecoration(color: Colors.blue),
                 ),
                 Container(
-                  child: Text('FEMALE'),
+                  child: Column(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.venus,
+                        size: 80,
+                      ),
+                      SizedBox(height: 15,),
+                      Text(
+                        'FEMALE',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                   margin: EdgeInsets.all(15),
-                  decoration: BoxDecoration(color: Colors.red),
+                  decoration: BoxDecoration(color: Colors.blue),
                 ),
               ],
             ),
