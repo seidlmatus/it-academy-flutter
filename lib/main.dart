@@ -8,7 +8,16 @@ void main() {
   runApp(BMICalculator());
 }
 
-class BMICalculator extends StatelessWidget {
+class BMICalculator extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _BMICalculator();
+  }
+}
+
+class _BMICalculator extends State<StatefulWidget> {
+  int height = 100;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +27,7 @@ class BMICalculator extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('BMI Calculator'.toUpperCase()),
+          title: Center(child: Text('BMI Calculator'.toUpperCase())),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -59,7 +68,7 @@ class BMICalculator extends StatelessWidget {
                   textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
-                      '180',
+                      height.toString(),
                       style: TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
@@ -76,17 +85,17 @@ class BMICalculator extends StatelessWidget {
                 ),
                 SliderTheme(
                   data: SliderTheme.of(context).copyWith(
-                    activeTrackColor: Colors.red,
-                    thumbColor: Colors.yellow,
-                    thumbShape: RoundSliderThumbShape(),
-                    overlayShape: RoundSliderOverlayShape()
-                  ),
+                      activeTrackColor: Colors.red,
+                      thumbColor: Colors.yellow,
+                      thumbShape: RoundSliderThumbShape(),
+                      overlayShape: RoundSliderOverlayShape()),
                   child: Slider(
-                    value: 180,
+                    value: height.toDouble(),
                     min: 100,
                     max: 220,
                     inactiveColor: Colors.pink,
-                    onChanged: null,
+                    onChanged: (value) =>
+                        setState(() => height = value.round()),
                   ),
                 ),
               ],
