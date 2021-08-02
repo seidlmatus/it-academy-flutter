@@ -166,7 +166,10 @@ class _BMICalculator extends State<StatefulWidget> {
                         NumberPicker(
                           minValue: 10,
                           maxValue: 80,
+                          textStyle: TextStyle(color: Colors.black),
+                          selectedTextStyle: TextStyle(color: Colors.red, fontSize: 30),
                           value: age,
+                          axis: Axis.horizontal,
                           onChanged: (value) =>
                               setState(() => age = value),
                         )
