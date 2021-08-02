@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:untitled1/reusable_card.dart';
+import 'package:untitled1/rounded_icon_btn.dart';
 
 import 'icon_content.dart';
 
@@ -21,7 +22,26 @@ class BMICalculator extends StatefulWidget {
 class _BMICalculator extends State<StatefulWidget> {
   int height = 180;
   int age = 35;
+  int weight = 60;
   Gender? selectedGender;
+
+  void increment() {
+    setState(() {
+      weight++;
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      weight--;
+    });
+  }
+
+  void setAge(int value) {
+    setState(() {
+      age = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +155,7 @@ class _BMICalculator extends State<StatefulWidget> {
                             style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                           Text(
-                            '68',
+                            weight.toString(),
                             style: TextStyle(
                                 fontSize: 50,
                                 color: Colors.white,
@@ -146,12 +166,12 @@ class _BMICalculator extends State<StatefulWidget> {
                             children: [
                               RoundedIconButton(
                                 icon: Icons.remove,
-                                onPress: () => {},
+                                onPress: decrement,
                               ),
                               SizedBox(width: 10),
                               RoundedIconButton(
                                 icon: Icons.add,
-                                onPress: () => {},
+                                onPress: increment,
                               )
                             ],
                           )
@@ -175,14 +195,15 @@ class _BMICalculator extends State<StatefulWidget> {
                             minValue: 10,
                             maxValue: 80,
                             haptics: true,
-                            textStyle: TextStyle(color: Colors.white, fontSize: 20),
+                            textStyle:
+                                TextStyle(color: Colors.white, fontSize: 20),
                             selectedTextStyle: TextStyle(
                                 color: Colors.redAccent,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30),
                             value: age,
                             axis: Axis.horizontal,
-                            onChanged: (value) => setState(() => age = value),
+                            onChanged: setAge,
                           )
                         ],
                       ),
@@ -213,28 +234,6 @@ class _BMICalculator extends State<StatefulWidget> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class RoundedIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onPress;
-
-  const RoundedIconButton({
-    Key? key,
-    required this.icon,
-    required this.onPress,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPress,
-      child: Icon(icon),
-      fillColor: Colors.red,
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: CircleBorder(),
     );
   }
 }
