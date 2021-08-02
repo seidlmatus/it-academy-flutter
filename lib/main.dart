@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:untitled1/bottom_widget.dart';
+import 'package:untitled1/result_page.dart';
 import 'package:untitled1/reusable_card.dart';
 import 'package:untitled1/rounded_icon_btn.dart';
 
@@ -215,21 +217,16 @@ class _BMICalculator extends State<StatefulWidget> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () => {},
-              child: Container(
-                color: Colors.redAccent,
-                width: double.infinity,
-                height: 80,
-                child: Center(
-                    child: Text(
-                  'calculate'.toUpperCase(),
-                  style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900),
-                )),
-              ),
+            BottomWidget(
+              text: 'calculate',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage()
+                    ),
+                );
+              },
             ),
           ],
         ),
