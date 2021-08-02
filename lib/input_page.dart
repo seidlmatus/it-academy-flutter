@@ -139,6 +139,7 @@ class _InputPage extends State<StatefulWidget> {
             child: Row(
               children: [
                 Expanded(
+                  flex: 1,
                   child: ReusableCard(
                     contentChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -161,7 +162,7 @@ class _InputPage extends State<StatefulWidget> {
                               icon: Icons.remove,
                               onPress: decrement,
                             ),
-                            SizedBox(width: 10),
+                            SizedBox(width: 5),
                             RoundedIconButton(
                               icon: Icons.add,
                               onPress: increment,
@@ -176,27 +177,30 @@ class _InputPage extends State<StatefulWidget> {
                   ),
                 ),
                 Expanded(
+                  flex: 2,
                   child: ReusableCard(
                     contentChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'age'.toUpperCase(),
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                          style: TextStyle(fontSize: 30, color: Colors.white),
                         ),
-                        NumberPicker(
-                          minValue: 10,
-                          maxValue: 80,
-                          haptics: true,
-                          textStyle:
-                              TextStyle(color: Colors.white, fontSize: 20),
-                          selectedTextStyle: TextStyle(
-                              color: Colors.redAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30),
-                          value: age,
-                          axis: Axis.horizontal,
-                          onChanged: setAge,
+                        Center(
+                          child: NumberPicker(
+                            minValue: 10,
+                            maxValue: 80,
+                            haptics: true,
+                            textStyle:
+                                TextStyle(color: Colors.white, fontSize: 20),
+                            selectedTextStyle: TextStyle(
+                                color: Colors.redAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30),
+                            value: age,
+                            axis: Axis.horizontal,
+                            onChanged: setAge,
+                          ),
                         )
                       ],
                     ),
